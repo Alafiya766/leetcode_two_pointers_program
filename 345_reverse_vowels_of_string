@@ -1,0 +1,24 @@
+class Solution {
+    public String reverseVowels(String s) {
+        String v ="aeiouAEIOU";
+        char[] ar = s.toCharArray();
+        int l=0,r=s.length()-1;
+        while(l<r)
+        {
+            while(l<r && v.indexOf(ar[l])==-1)
+            {
+                l++;
+            }
+            while(l<r && v.indexOf(ar[r])==-1)
+            {
+                r--;
+            }
+            char t = ar[l];
+            ar[l]=ar[r];
+            ar[r]=t;
+            l++;
+            r--;
+        }
+        return new String(ar);
+    }
+}
